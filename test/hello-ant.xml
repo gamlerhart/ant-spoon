@@ -1,0 +1,5 @@
+<project name="HelloAnt" basedir="." default="main">
+	<target name="main">
+		<echo message="Hello, Ant"/>
+	</target>
+</project>

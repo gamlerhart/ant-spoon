@@ -1,0 +1,12 @@
+from spoonbrew/jdk:7.65
+using wget 7zip
+cmd if NOT DEFINED VERSION  echo "Please specify the %%VERSION%% environment variable" & exit /b 1
+cmd %spn_wget% http://archive.apache.org/dist/ant/binaries/apache-ant-%VERSION%-bin.zip -O ant.zip
+cmd %spn_7z% x ant.zip -oC:\
+cmd del ant.zip
+
+env JAVA_HOME="@PROGRAMFILESX86@\Java\jdk1.7.0_65"
+env JAVACMD="@PROGRAMFILESX86@\Java\jdk1.7.0_65\bin\java"
+env ANT_HOME=C:\apache-ant-%VERSION%
+
+env PATH=%PATH%;C:\apache-ant-%VERSION%\bin
